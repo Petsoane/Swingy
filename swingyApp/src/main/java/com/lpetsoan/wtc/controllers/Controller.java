@@ -59,6 +59,11 @@ public class Controller {
         System.out.println("Your choice was "  + answer);
     }
     
+    /**
+     * Loads all created characters from the database.... Im not sure yet how I am going to work
+     * with this later on.. but for now it just uses some dummy data.
+     * @return
+     */
     private List<Character> loadCharacters(){
         List<Character> prevCharacters = new ArrayList<Character>();
         // init dummy data.
