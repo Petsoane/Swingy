@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.lpetsoan.wtc.models.characters.Character;
+import com.lpetsoan.wtc.models.characters.Hero;
 
 
 
 public class Controller {
     private static Controller controller = null;
-    private Character player;
+    private Hero player;
     private int boardSize;
 
     private Controller(){
@@ -44,7 +44,7 @@ public class Controller {
     private void initPlayer(){
         // load previous characters if any
         int answer = -1;
-        List<Character> prevCharacters = loadCharacters();
+        List<Hero> prevCharacters = loadCharacters();
         int prevCharCount = prevCharacters.size();
         
         
@@ -64,21 +64,22 @@ public class Controller {
      * with this later on.. but for now it just uses some dummy data.
      * @return
      */
-    private List<Character> loadCharacters(){
-        List<Character> prevCharacters = new ArrayList<Character>();
+    private List<Hero> loadCharacters(){
+        List<Hero> prevCharacters = new ArrayList<Hero>();
         // init dummy data.
-        prevCharacters.add(new Character("lebo", 10, 10, 10, 0, 0));
-        prevCharacters.add(new Character("Darleen", 10, 10, 10, 0, 0));
+        prevCharacters.add(new Hero("lebo","Wuss", 10, 10, 10, 0, 0));
+        prevCharacters.add(new Hero("Darleen", "PPLPLSR",10, 10, 10, 0, 0));
         return prevCharacters;
     }
+     
     /**
      * Creates a new player
      * 
      * Should be overriden at some point by both controllers.
      * @return
      */
-    protected Character createPlayer(){
-        return new Character("Mr robot", 10, 10, 10, 0, 0);
+    protected Hero createPlayer(){
+        return new Hero("Mr robot", "GODMODE",10, 10, 10, 0, 0);
     }
     
     /**
@@ -87,7 +88,7 @@ public class Controller {
      * @param message
      * @return
      */
-    protected int getChoice(String message, List<Character> prevCharacters){
+    protected int getChoice(String message, List<Hero> prevCharacters){
         int answer = 0;
         Scanner input = null;
         int prevCharCount = prevCharacters.size();
