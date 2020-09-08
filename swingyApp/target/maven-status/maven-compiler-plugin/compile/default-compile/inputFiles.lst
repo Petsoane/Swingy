@@ -1,4 +1,9 @@
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/views/gui/SwingView.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/controllers/Controller.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/App.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/characters/Hero.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/views/gui/Board.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/views/gui/Listeners/Listener.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/views/terminal/TermView.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/characters/Character.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/views/View.java

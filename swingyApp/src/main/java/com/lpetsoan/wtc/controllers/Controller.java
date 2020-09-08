@@ -1,10 +1,12 @@
 package com.lpetsoan.wtc.controllers;
 
+import java.awt.EventQueue;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import com.lpetsoan.wtc.models.characters.Hero;
+import com.lpetsoan.wtc.views.View;
 
 
 
@@ -12,19 +14,31 @@ public class Controller {
     private static Controller controller = null;
     private Hero player;
     private int boardSize;
+    private View view;
 
-    private Controller(){
+    private Controller(View view){
         this.boardSize = 0;
+        this.view = view;
     }
 
-    public static void startGame(){
-        if (controller == null) controller = new Controller();
+    public static void startGame(View v){
+        if (controller == null) controller = new Controller(v);
 
-        // create or Select.
+        // Initialise game play..
+        controller.view.initUI();    
         controller.initGame();
+
+        // Game looop
     }
 
-    public void initGame(){
+    private void gameLoop(){
+        // EventQueue.invokeLater(() -> {
+        // });
+    }
+    
+    private void initGame(){
+        // initialize view
+        view.initUI();
         System.out.println("Board Of Horrors......");
 
         // Load or Create
@@ -47,13 +61,17 @@ public class Controller {
         List<Hero> prevCharacters = loadCharacters();
         int prevCharCount = prevCharacters.size();
         
-        
-        while (answer < 0 || answer > prevCharCount)
-            answer = this.getChoice(prevCharCount + ": Create new player" + "\n[*]>> ", prevCharacters);
-        
-        if (answer == prevCharCount && !prevCharacters.isEmpty())
-            this.player = createPlayer();
+        if (view.load()){
+            System.out.println("Loading the stuff in");
+            this.player = view.createPlayer();
+        }
         else{
+            System.out.println("Are you here");
+            String message = "[*]>> ";
+            while (answer < 0 || answer > prevCharCount){
+                
+                answer = view.getChoice(message, prevCharacters);
+            }
             this.player = prevCharacters.get(answer);
         }
         System.out.println("Your choice was "  + answer);
@@ -71,47 +89,4 @@ public class Controller {
         prevCharacters.add(new Hero("Darleen", "PPLPLSR",10, 10, 10, 0, 0));
         return prevCharacters;
     }
-     
-    /**
-     * Creates a new player
-     * 
-     * Should be overriden at some point by both controllers.
-     * @return
-     */
-    protected Hero createPlayer(){
-        return new Hero("Mr robot", "GODMODE",10, 10, 10, 0, 0);
-    }
-    
-    /**
-     * This function should change depending on what is using it... if its the terminal it should print to the terminal
-     * if its a gui it should show a dialog box and get input in that way
-     * @param message
-     * @return
-     */
-    protected int getChoice(String message, List<Hero> prevCharacters){
-        int answer = 0;
-        Scanner input = null;
-        int prevCharCount = prevCharacters.size();
-
-        try{
-            
-            
-        // prompt for the user for options
-            for (int i = 0; i < prevCharCount; i++){
-                System.out.print( (i) + ": ");
-                System.out.println(prevCharacters.get(i).getName());
-            }
-            input = new Scanner(System.in);
-            System.out.print(message);
-
-            answer = Integer.parseInt(input.next());
-
-        }
-        catch (Exception e){ answer = 0;}
-        finally{ if (input != null) input.close(); }
-
-        return  answer;
-    }
-
-
 }

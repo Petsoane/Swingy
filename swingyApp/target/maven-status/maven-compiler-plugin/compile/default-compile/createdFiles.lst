@@ -1,4 +1,13 @@
-com/lpetsoan/wtc/models/characters/Hero.class
-com/lpetsoan/wtc/controllers/Controller.class
+com/lpetsoan/wtc/views/gui/SwingView.class
 com/lpetsoan/wtc/models/characters/Character.class
 com/lpetsoan/wtc/App.class
+com/lpetsoan/wtc/views/gui/Listeners/ChoiceListener$NoEvent.class
+com/lpetsoan/wtc/views/View.class
+com/lpetsoan/wtc/views/gui/Listeners/ChoiceListener.class
+com/lpetsoan/wtc/views/terminal/TermView.class
+com/lpetsoan/wtc/models/characters/Hero.class
+com/lpetsoan/wtc/controllers/Controller.class
+com/lpetsoan/wtc/views/gui/Board.class
+com/lpetsoan/wtc/views/gui/Listeners/ChoiceListener$YesEvent.class
+com/lpetsoan/wtc/views/gui/Listeners/Listener.class
+com/lpetsoan/wtc/views/gui/Listeners/ChoiceListener$1.class
