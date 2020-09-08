@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 
 import com.lpetsoan.wtc.models.characters.Hero;
 import com.lpetsoan.wtc.views.View;
-import com.lpetsoan.wtc.views.gui.Listeners.Listener;
+import com.lpetsoan.wtc.views.gui.Listeners.ChoiceListener;
 
 public class SwingView extends JFrame implements View{
     JPanel panel;
@@ -37,7 +37,8 @@ public class SwingView extends JFrame implements View{
     
     @Override
     public boolean load() {
-        return Listener.getChoice(panel);
+        ChoiceListener c = new ChoiceListener(panel);
+        return c.getChoice();
     }
 
     @Override

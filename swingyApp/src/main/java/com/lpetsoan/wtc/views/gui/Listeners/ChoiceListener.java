@@ -1,29 +1,14 @@
 package com.lpetsoan.wtc.views.gui.Listeners;
 
+
 import java.util.concurrent.Semaphore;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import java.awt.event.*;
 
-public class Listener {
-    private static ChoiceListener choiceListener = null;
 
-
-    /**
-     * 
-     * @return true or false.
-     */
-    public static boolean getChoice(JPanel panel){
-        choiceListener = new ChoiceListener(panel);
-
-        return choiceListener.getChoice();
-    }
-    
-    
-}
-
-class ChoiceListener{
+public class ChoiceListener{
     private JPanel panel;
     private boolean value;
     private Semaphore s;
