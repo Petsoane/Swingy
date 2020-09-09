@@ -6,6 +6,7 @@ public class HeroClass {
     public int hitPoints;
     public int attack;
 
+
     public HeroClass(String type, int defense, int hitPoints, int attack){
         this.type = type;
         this.defense = defense;

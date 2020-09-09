@@ -25,5 +25,5 @@ public class Hero extends Character{
     public String getHeroClass(){
         return this.hClass.type;
     }
-    
+
 }
