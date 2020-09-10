@@ -6,15 +6,18 @@ import com.lpetsoan.wtc.models.Factories.HeroFactory;
 import java.util.Scanner;
 import java.lang.System;
 
+import com.lpetsoan.wtc.Controllers.Controller;
 import com.lpetsoan.wtc.Utils.Input;
 import com.lpetsoan.wtc.View.View;
 
 public class TermView implements View{
     private Hero player;
     private int map;
+    private Controller controller;
 
 
     public TermView(){
+        this.controller = new Controller();
     }
 
     private void initPlayer(){
@@ -36,7 +39,7 @@ public class TermView implements View{
 
             if (answer == 1){
                 System.out.println("Creating a new Hero");
-                this.player = HeroFactory.getFactory().newHero();
+                this.controller.initPlayer(HeroFactory.getFactory().newHero());
             }
             else{
                 System.out.println("Loading the old heroes please wait");
@@ -49,17 +52,22 @@ public class TermView implements View{
     }
 
     public void gameLoop(){
-        int level = this.player.getLevel();
-        int current_x = this.player.getX();
-        int current_y = this.player.getY();
+        // int level = this.player.getLevel();
+        int current_x = this.controller.getPlayerX();
+        int current_y = this.controller.getPlayerY();
 
 
-        this.map = (level-1)*5+10-(level%2);
+        // this.map = (level-1)*5+10-(level%2);
+        this.map = this.controller.getMap();
         char move;
 
         System.out.println("The map is " + this.map);
 
         while(true){
+            if (this.controller.gameWon()){
+                System.out.println("Game is won");
+                break;
+            }
             renderMap();
             
             move = (Input.getInput(">>")).charAt(0);
@@ -69,33 +77,38 @@ public class TermView implements View{
             }
             switch(move){
                 case 'a':
-                    if ((current_y - 1) >= 0) this.player.setY(current_y - 1); break;
+                    // if ((current_y - 1) >= 0) this.player.setY(current_y - 1); break;
+                    if (!controller.yAtEdge()) this.controller.moveY(current_y - 1);break;
                 case 'd':
-                    if ((current_y + 1) < this.map) this.player.setY(current_y + 1); break;
+                    // if ((current_y + 1) < this.map) this.player.setY(current_y + 1); break;
+                    if (!controller.yAtEdge()) this.controller.moveY(current_y + 1);break;
+
                 case 'w':
-                    if ((current_x - 1) >= 0) this.player.setX(current_x - 1); break;
+                    // if ((current_x - 1) >= 0) this.player.setX(current_x - 1); break;
+                    if (!controller.xAtEdge()) this.controller.moveX(current_x - 1);break;
+
                 case 's':
-                    if ((current_x + 1) < this.map) this.player.setX(current_x + 1); break;
+                    // if ((current_x + 1) < this.map) this.player.setX(current_x + 1); break;
+                    if (!controller.xAtEdge()) this.controller.moveX(current_x + 1);break;
+
             }
 
             System.out.println(move);
-            current_x = this.player.getX();
-            current_y = this.player.getY();
+            current_x = this.controller.getPlayerX();
+            current_y = this.controller.getPlayerY();
         }
     }
 
     private void renderMap(){
-        Input.clear();
+        // Input.clear();
         for (int i = 0; i < this.map; i++){
             for (int k = 0; k < this.map; k++){
-                if (this.player.getX() == i && this.player.getY() == k) System.out.print("0");
+                if (this.controller.getPlayerX() == i && this.controller.getPlayerY() == k) System.out.print("0");
                 else System.out.print("*");
             }
             System.out.println();
         }
     }
-
-
     
     @Override
     public void start() {

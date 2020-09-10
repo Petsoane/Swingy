@@ -1,8 +1,11 @@
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Hero.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/HeroClass/HeroClass.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Villian.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/App.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/View/Terminal/TermView.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/Controllers/Controller.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Character.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/View/View.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Factories/HeroFactory.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/Utils/Position.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/Utils/Input.java
