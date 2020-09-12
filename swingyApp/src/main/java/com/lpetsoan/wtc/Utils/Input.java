@@ -26,6 +26,21 @@ public class Input {
         return answer;
     }
 
+    public static void press(){
+        BufferedReader i = null;
+
+        try{
+            i = new BufferedReader( new InputStreamReader(System.in));
+            i.readLine();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            // if (i != null) i.close();
+        }
+    }
+
     public static void clear(){
         System.out.print("\033[H\033[2J");  
         System.out.flush(); 

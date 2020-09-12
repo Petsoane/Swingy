@@ -57,9 +57,14 @@ public class Hero extends Character{
         return this.hClass.type;
     }
 
+    public void setArtifact(Artifact a){
+        if (a.type == "Weapon"){
+            this.weapon = a;
+        }
+    }
     public void pillage(Villian opp){
         this.health += (50 + (this.health / 2));
-        this.incXp((opp.getAttack() + opp.getHitPoints()) * (100 * opp.getDefense()));
+        this.incXp((opp.getAttack() + opp.getHitPoints()) * (500 * opp.getDefense()));
     }
 
     @Override

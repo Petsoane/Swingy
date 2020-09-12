@@ -1,6 +1,8 @@
 package com.lpetsoan.wtc.models.HeroClass;
 
-public class HeroClass {
+import java.io.Serializable;
+
+public class HeroClass implements Serializable{
     public String type;
     public int defense;
     public int hitPoints;

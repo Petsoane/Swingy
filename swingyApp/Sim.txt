@@ -1,0 +1,78 @@
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+98 Left of my life
+Vl attacks Lebo
+Taking damage
+90 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+96 Left of my life
+Vl attacks Lebo
+Taking damage
+80 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+94 Left of my life
+Vl attacks Lebo
+Taking damage
+70 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+92 Left of my life
+Vl attacks Lebo
+Taking damage
+60 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+90 Left of my life
+Vl attacks Lebo
+Taking damage
+50 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+88 Left of my life
+Vl attacks Lebo
+Taking damage
+40 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+86 Left of my life
+Vl attacks Lebo
+Taking damage
+30 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+84 Left of my life
+Vl attacks Lebo
+Taking damage
+20 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+82 Left of my life
+Vl attacks Lebo
+Taking damage
+10 Left of my life
+Lebo vs Vl
+Lebo attacks Vl
+Taking damage
+80 Left of my life
+Vl attacks Lebo
+Taking damage
+0 Left of my life
+Name: Lebo
+Attack: 1
+Defense: 1
+Hit points: 1
+Health: 0
+Class: class com.lpetsoan.wtc.models.Hero
+Level: 1
+Experience: 1300

@@ -1,17 +1,22 @@
 package com.lpetsoan.wtc.View.Terminal;
 
-// import com.lpetsoan.wtc.models.Hero;
+import com.lpetsoan.wtc.models.Hero;
 import com.lpetsoan.wtc.models.Factories.HeroFactory;
 
-// import java.util.Scanner;
+import java.util.Random;
+import java.util.Scanner;
+
+import java.io.File;
+import java.io.InputStream;
 import java.lang.System;
+
+import javax.net.ssl.ExtendedSSLSession;
 
 import com.lpetsoan.wtc.Controllers.Controller;
 import com.lpetsoan.wtc.Utils.Input;
 import com.lpetsoan.wtc.View.View;
 
 public class TermView implements View{
-    // private Hero player;
     private int map;
     private Controller controller;
 
@@ -22,6 +27,7 @@ public class TermView implements View{
 
     private void initPlayer(){
         int answer = -1;
+        Hero h = null;
 
         try{
 
@@ -39,11 +45,21 @@ public class TermView implements View{
 
             if (answer == 1){
                 System.out.println("Creating a new Hero");
-                this.controller.initPlayer(HeroFactory.getFactory().newHero());
+                h = HeroFactory.getFactory().newHero();
+                // this.controller.initPlayer(HeroFactory.getFactory().newHero());
             }
             else{
                 System.out.println("Loading the old heroes please wait");
+                // this.controller.initPlayer(this.controller.loadHero());
+                h = this.controller.loadHero();
+                if (h == null){
+                    System.out.println("There are no heroes at the moment");
+                    h = HeroFactory.getFactory().newHero();
+                }
+                Input.press();
             }
+
+            this.controller.initPlayer(h);
 
         }
         catch (Exception e){
@@ -52,12 +68,10 @@ public class TermView implements View{
     }
 
     public void gameLoop(){
-        // int level = this.player.getLevel();
         int current_x = this.controller.getPlayerX();
         int current_y = this.controller.getPlayerY();
 
 
-        // this.map = (level-1)*5+10-(level%2);
         this.map = this.controller.getMap();
         char move;
 
@@ -66,13 +80,37 @@ public class TermView implements View{
         while(true){
             if (this.controller.gameWon()){
                 System.out.println("Game is won");
-                break;
+                this.map = this.controller.getMap();
+                this.controller.resetPlayer();
+
+                current_x = this.controller.getPlayerX();
+                current_y = this.controller.getPlayerY();
+                // break;
             }
             
             if (this.controller.battleAhead()){
                 if (this.fightOrFlight()){
-                    this.controller.fight();
+                    if (this.controller.fight()){
+
+                        System.out.println("You have won the fight....");
+                        if (this.controller.itemDropped()){
+                            
+                            System.out.println("There is an artifact...");
+                            if (pickItem()){
+                                this.controller.pickUpItem();
+                            }
+                        }
+                    }
+                    else{
+                        System.out.println("You have lost the fight.....");
+                    }
                 }
+                else{
+                    System.out.println("Wuss.....");
+                }
+                Input.press();
+                this.dumpBattle();
+                Input.press();
                 current_x = this.controller.getPlayerX();
                 current_y = this.controller.getPlayerY();
             }
@@ -81,6 +119,7 @@ public class TermView implements View{
             move = (Input.getInput(">>")).charAt(0);
             if(move == 'k'){
                 System.out.println("Save state and exit");
+                this.controller.saveHero();
                 break;
             }
 
@@ -122,20 +161,65 @@ public class TermView implements View{
     
     @Override
     public void start() {
-        Input.clear();
+        // Input.clear();
         System.out.println("Starting the game");
         initPlayer();
         gameLoop();
     }
+
     public boolean fightOrFlight(){
         char answer;
 
-        answer = Input.getInput("Do you want to fight (Y/n): ").charAt(0);
+        while (true){
+            answer = Input.getInput("Do you want to fight (Y/n): ").charAt(0);
 
-        if (answer == 'y' || answer == 'Y'){
-            return true;
+            if (answer == 'y' || answer == 'Y'){
+                return true;
+            }
+            else if( answer == 'n' || answer == 'N'){ 
+                Random t = new Random();
+
+                int tmp = t.nextInt(2);
+                return tmp == 0;
+            }
+            else{
+                System.out.println("Invalid input...... Please enter yes or no");
+            }
         }
-        return false;
+    }
+
+
+    public void dumpBattle(){
+        Scanner i = null;
+
+        try{
+            i = new Scanner(new File("Sim.txt"));
+            while (i.hasNextLine()){
+                System.out.println(i.nextLine());
+            }
+        }
+        catch (Exception e){e.printStackTrace();}
+        finally{
+            if (i != null) i.close();
+        }
+    }
+
+    public boolean pickItem(){
+        char answer;
+
+        while (true){
+            answer = Input.getInput("Pick up item(Y/n): ").charAt(0);
+
+            if (answer == 'y' || answer == 'Y'){
+                return true;
+            }
+            else if( answer == 'n' || answer == 'N'){ 
+                return false;
+            }
+            else{
+                System.out.println("Invalid input...... Please enter yes or no");
+            }
+        }
     }
     
     

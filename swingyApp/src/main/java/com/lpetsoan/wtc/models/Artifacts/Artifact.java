@@ -1,8 +1,10 @@
 package com.lpetsoan.wtc.models.Artifacts;
 
+import java.io.Serializable;
+
 import javax.lang.model.element.TypeElement;
 
-public class Artifact {
+public class Artifact implements Serializable {
     public String type;
     public int attack;
     public int defense;

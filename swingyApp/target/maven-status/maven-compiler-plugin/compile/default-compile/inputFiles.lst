@@ -4,6 +4,7 @@
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/App.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/View/Terminal/TermView.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/Controllers/Controller.java
+/home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Artifacts/Artifact.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Character.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/View/View.java
 /home/elliot/Desktop/Swingy/swingyApp/src/main/java/com/lpetsoan/wtc/models/Factories/HeroFactory.java

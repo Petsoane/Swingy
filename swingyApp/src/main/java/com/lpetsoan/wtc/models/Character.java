@@ -1,8 +1,10 @@
 package com.lpetsoan.wtc.models;
 
+import java.io.Serializable;
+
 import com.lpetsoan.wtc.models.Artifacts.Artifact;
 
-public class Character {
+public class Character implements Serializable {
     protected String name;
     protected int defense;
     protected int hitPoints;
@@ -10,9 +12,9 @@ public class Character {
     public int health;
     protected int x, y;
     // protected Artifact artifact;
-    private Artifact weapon;
-    private Artifact armor;
-    private Artifact helm;
+    protected Artifact weapon;
+    protected Artifact armor;
+    protected Artifact helm;
 
     public Character(String name, int defense, int hitPoint, int attack, int x, int y){
         this.name = name;
@@ -22,9 +24,9 @@ public class Character {
         this.x = x;
         this.y = y;
         this.health = 100;
-        this.weapon = new Artifact("None", 0,0,0);
-        this.armor = new Artifact("None", 0,0,0);
-        this.helm = new Artifact("None", 0,0,0);
+        this.weapon = new Artifact("Weapon", 0,0,0);
+        this.armor = new Artifact("Armor", 0,0,0);
+        this.helm = new Artifact("Helm", 0,0,0);
     }
 
     public String getName(){
@@ -66,9 +68,11 @@ public class Character {
     }
 
     public void attack(Character opp){
+        int damage = this.attack + this.weapon.attack + this.helm.attack;
+
         System.out.println(this.name + " attacks " + opp.name);
 
-        opp.takeDamage(this.attack + hitPoints);
+        opp.takeDamage(damage + hitPoints);
     }
     
     public void stats(){

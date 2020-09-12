@@ -6,6 +6,7 @@ com/lpetsoan/wtc/models/HeroClass/HeroClass.class
 com/lpetsoan/wtc/models/Hero.class
 com/lpetsoan/wtc/View/View.class
 com/lpetsoan/wtc/Utils/Position.class
+com/lpetsoan/wtc/models/Artifacts/Artifact.class
 com/lpetsoan/wtc/Controllers/Controller.class
 com/lpetsoan/wtc/App.class
 com/lpetsoan/wtc/models/Villian.class
