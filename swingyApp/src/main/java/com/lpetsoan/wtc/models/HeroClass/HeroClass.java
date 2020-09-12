@@ -11,6 +11,7 @@ public class HeroClass {
         this.type = type;
         this.defense = defense;
         this.attack = attack;
+        this.hitPoints = hitPoints;
     }
     
 }

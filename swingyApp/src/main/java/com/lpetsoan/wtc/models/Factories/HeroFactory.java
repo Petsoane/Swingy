@@ -46,7 +46,8 @@ public class HeroFactory {
         }
 
         Hero h = new Hero(name, heroTypes.get(type));
-        stats(h);
+        // stats(h);
+        h.stats();
         return h;
     }
 

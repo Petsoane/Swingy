@@ -1,9 +1,9 @@
 package com.lpetsoan.wtc.View.Terminal;
 
-import com.lpetsoan.wtc.models.Hero;
+// import com.lpetsoan.wtc.models.Hero;
 import com.lpetsoan.wtc.models.Factories.HeroFactory;
 
-import java.util.Scanner;
+// import java.util.Scanner;
 import java.lang.System;
 
 import com.lpetsoan.wtc.Controllers.Controller;
@@ -11,7 +11,7 @@ import com.lpetsoan.wtc.Utils.Input;
 import com.lpetsoan.wtc.View.View;
 
 public class TermView implements View{
-    private Hero player;
+    // private Hero player;
     private int map;
     private Controller controller;
 
@@ -68,6 +68,14 @@ public class TermView implements View{
                 System.out.println("Game is won");
                 break;
             }
+            
+            if (this.controller.battleAhead()){
+                if (this.fightOrFlight()){
+                    this.controller.fight();
+                }
+                current_x = this.controller.getPlayerX();
+                current_y = this.controller.getPlayerY();
+            }
             renderMap();
             
             move = (Input.getInput(">>")).charAt(0);
@@ -75,6 +83,8 @@ public class TermView implements View{
                 System.out.println("Save state and exit");
                 break;
             }
+
+            // move player.....
             switch(move){
                 case 'a':
                     // if ((current_y - 1) >= 0) this.player.setY(current_y - 1); break;
@@ -117,6 +127,16 @@ public class TermView implements View{
         initPlayer();
         gameLoop();
     }
+    public boolean fightOrFlight(){
+        char answer;
 
+        answer = Input.getInput("Do you want to fight (Y/n): ").charAt(0);
+
+        if (answer == 'y' || answer == 'Y'){
+            return true;
+        }
+        return false;
+    }
+    
     
 }
