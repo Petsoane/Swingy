@@ -1,6 +1,5 @@
 package com.lpetsoan.wtc.Controllers;
 
-
 import java.beans.DesignMode;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +18,6 @@ import com.lpetsoan.wtc.models.Hero;
 import com.lpetsoan.wtc.models.Villian;
 import com.lpetsoan.wtc.models.Artifacts.Artifact;
 
-
 public class Controller {
     private Hero player;
     private int map;
@@ -29,28 +27,27 @@ public class Controller {
 
     private Artifact droppedItem = null;
 
-    public Controller(){
+    public Controller() {
         this.player = null;
         this.map = 0;
     }
 
-
-    public void initPlayer(Hero player){
+    public void initPlayer(Hero player) {
         this.player = player;
         int level = player.getLevel();
 
-        
-        this.map = (level-1)*5+10-(level%2);
-        this.player.setX(this.map/2);
-        this.player.setY(this.map/2);
+        this.map = (level - 1) * 5 + 10 - (level % 2);
+        this.player.setX(this.map / 2);
+        this.player.setY(this.map / 2);
         initVillians();
 
     }
 
-    public void resetPlayer(){
+    public void resetPlayer() {
         initPlayer(this.player);
     }
-    private void initVillians(){
+
+    private void initVillians() {
         Random r = new Random();
         // r.setSeed();
         villians = new ArrayList<Villian>();
@@ -58,86 +55,94 @@ public class Controller {
         int count = 10;
         // System.out.println("What is happening" + count);
 
-        for (int i = 0; i < count; i++){
-            villians.add(new Villian("Vl", r.nextInt(10), r.nextInt(10), r.nextInt(10), r.nextInt(this.map), r.nextInt(this.map)));
+        for (int i = 0; i < count; i++) {
+            villians.add(new Villian("Vl", r.nextInt(10), r.nextInt(10), r.nextInt(10), r.nextInt(this.map),
+                    r.nextInt(this.map)));
         }
 
     }
 
-    public int getMap(){
+    public int getMap() {
         return this.map;
     }
 
-    public int getPlayerX(){
+    public int getPlayerX() {
         return this.player.getX();
     }
-    public void moveX(int val){
+
+    public void moveX(int val) {
         this.player.setX(val);
     }
 
-    public int getPlayerY(){
+    public int getPlayerY() {
         return this.player.getY();
     }
-    public void moveY(int val){
+
+    public void moveY(int val) {
         this.player.setY(val);
     }
 
-    public boolean yAtEdge(){
+    public boolean yAtEdge() {
         return atEdge(this.player.getY());
     }
 
-    public boolean xAtEdge(){
+    public boolean xAtEdge() {
         return atEdge(this.player.getX());
     }
 
-    private boolean atEdge(int val){
-        if (val < 0 || val >= this.map) { System.out.println("At edge");return true;}
+    private boolean atEdge(int val) {
+        if (val < 0 || val >= this.map) {
+            System.out.println("At edge");
+            return true;
+        }
         return false;
     }
 
-    public boolean gameWon(){
-        if (this.xAtEdge() || this.yAtEdge()) return true;
+    public boolean gameWon() {
+        if (this.xAtEdge() || this.yAtEdge())
+            return true;
         return false;
     }
 
-    public boolean battleAhead(){
-        for (Villian v : villians){
+    public boolean battleAhead() {
+        for (Villian v : villians) {
             // System.out.println(v.getAttack());
             // System.out.println(v.getY());
-            if (v.getX() == getPlayerX() && v.getY() == getPlayerY()){
+            if (v.getX() == getPlayerX() && v.getY() == getPlayerY()) {
                 System.out.println("You have to fight or Run now");
                 opponent = v;
                 return true;
             }
         }
-        
+
         return false;
     }
 
-    public boolean itemDropped(){
+    public boolean itemDropped() {
         return (droppedItem != null);
     }
 
-    public void pickUpItem(){
+    public void pickUpItem() {
         this.player.setArtifact(droppedItem);
         droppedItem = null;
     }
 
-    public boolean fight(){
+    public boolean fight() {
         PrintStream con = System.out;
-        try{
+        try {
             PrintStream file = new PrintStream(new File("Sim.txt"));
 
             System.setOut(file);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception e){ e.printStackTrace();}
-        
-        while(true){
-            
+
+        while (true) {
+
             System.out.println(this.player.getName() + " vs " + this.opponent.getName());
             // Player attacks first.
             this.player.attack(opponent);
-            if (this.opponent.health <= 0){
+            if (this.opponent.health <= 0) {
                 this.player.pillage(opponent);
                 this.player.stats();
 
@@ -150,9 +155,9 @@ public class Controller {
                 System.setOut(con);
                 return true;
             }
-            
+
             this.opponent.attack(player);
-            if (this.player.health <= 0){
+            if (this.player.health <= 0) {
                 // Reset the players position.
                 this.player.setX(0);
                 this.player.setY(0);
@@ -160,11 +165,11 @@ public class Controller {
                 // Get something nyana for the loss.
                 this.player.incXp(100);
                 this.player.stats();
-                
+
                 // Reset the players health
                 this.player.health = 100;
 
-                //  Reset the villians.
+                // Reset the villians.
                 this.initPlayer(player);
                 System.setOut(con);
                 return false;
@@ -175,52 +180,54 @@ public class Controller {
         // else System.out.println("You won the battle, but can you win the war");
     }
 
-    public void saveHero(){
+    public void saveHero() {
         FileOutputStream outFile = null;
         ObjectOutputStream serializer = null;
 
-        try{
+        try {
             outFile = new FileOutputStream(new File("State.dnt"));
             serializer = new ObjectOutputStream(outFile);
 
-
             serializer.writeObject(this.player);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally{
+        } finally {
 
-            try{
-            if (serializer != null) serializer.close();
+            try {
+                if (serializer != null)
+                    serializer.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            catch(Exception e){ e.printStackTrace(); }
         }
     }
 
-    public Hero loadHero(){
+    public Hero loadHero() {
         Hero tmp = null;
         FileInputStream inFile = null;
         ObjectInputStream deserializer = null;
 
-        try{
+        try {
             inFile = new FileInputStream("State.dnt");
             deserializer = new ObjectInputStream(inFile);
 
-            tmp = (Hero)deserializer.readObject();
+            tmp = (Hero) deserializer.readObject();
             tmp.stats();
-        }
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("NO HISTORY FILE");
-        }
-        catch (Exception e){ e.printStackTrace();}
-        finally{
-            try{
-                if (inFile != null) inFile.close();
-                if (deserializer != null) deserializer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (inFile != null)
+                    inFile.close();
+                if (deserializer != null)
+                    deserializer.close();
             }
-         
-            catch(Exception e){ e.printStackTrace();}
+
+            catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         return tmp;
