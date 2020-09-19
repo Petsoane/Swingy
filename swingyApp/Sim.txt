@@ -4,54 +4,47 @@ Taking damage
 98 Left of my life
 Vl attacks lebo
 Taking damage
-85 Left of my life
+82 Left of my life
 lebo vs Vl
 lebo attacks Vl
 Taking damage
 96 Left of my life
 Vl attacks lebo
 Taking damage
-70 Left of my life
+64 Left of my life
 lebo vs Vl
 lebo attacks Vl
 Taking damage
 94 Left of my life
 Vl attacks lebo
 Taking damage
-55 Left of my life
+46 Left of my life
 lebo vs Vl
 lebo attacks Vl
 Taking damage
 92 Left of my life
 Vl attacks lebo
 Taking damage
-40 Left of my life
+28 Left of my life
 lebo vs Vl
 lebo attacks Vl
 Taking damage
 90 Left of my life
 Vl attacks lebo
 Taking damage
-25 Left of my life
+10 Left of my life
 lebo vs Vl
 lebo attacks Vl
 Taking damage
 88 Left of my life
 Vl attacks lebo
 Taking damage
-10 Left of my life
-lebo vs Vl
-lebo attacks Vl
-Taking damage
-86 Left of my life
-Vl attacks lebo
-Taking damage
--5 Left of my life
+-8 Left of my life
 Name: lebo
 Attack: 1
 Defense: 1
 Hit points: 1
-Health: -5
+Health: -8
 Class: class com.lpetsoan.wtc.models.Hero
 Level: 1
-Experience: 1100
+Experience: 1200

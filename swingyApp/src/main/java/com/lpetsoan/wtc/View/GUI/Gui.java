@@ -7,6 +7,7 @@ import com.lpetsoan.wtc.models.Factories.HeroFactory;
 
 import javax.swing.*;
 import javax.swing.text.DefaultStyledDocument.ElementSpec;
+import javax.swing.text.Highlighter.Highlight;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -22,11 +23,11 @@ public class Gui implements Runnable, KeyListener {
     private boolean running = false;
     private Controller controller;
 
-    private JTextArea area = new JTextArea(16,58);
-
+    
     public int width, height;
     private int x, y;
     public String title;
+    private JTextArea area = new JTextArea(width,height);
 
     private int map_size;
 
@@ -50,11 +51,7 @@ public class Gui implements Runnable, KeyListener {
         display.getCanvas().addKeyListener(this);
 
         // init info frame 
-        JScrollPane pane = new JScrollPane(area);
-        pane.setSize(new Dimension(width, height));
-        display.getInfoFrame().add(pane);
-        area.setVisible(true);
-        display.getInfoFrame().pack();
+        
     }
 
     private void dumpFight(){
@@ -62,7 +59,7 @@ public class Gui implements Runnable, KeyListener {
        
 
         area.append("This was an epic fight");
-        area.setText("");
+        // area.setText("");
         area.setVisible(true);
 
         try{
@@ -117,12 +114,22 @@ public class Gui implements Runnable, KeyListener {
                 g.dispose();
                 
                 dumpFight();
-                display.getInfoFrame().setVisible(true);
-                display.getInfoFrame().pack();
-                display.getGameFrame().setVisible(false);
-                JOptionPane.showMessageDialog(null, "Continue", "Pause", JOptionPane.PLAIN_MESSAGE);
-                display.getInfoFrame().setVisible(false);
-                display.getGameFrame().setVisible(true);
+                JScrollPane pane = new JScrollPane(area);
+                pane.setSize(new Dimension(width, height));
+                display.getGameFrame().add(pane);
+                area.setVisible(true);
+                display.getGameFrame().pack();
+                // display.getInfoFrame().setVisible(true);
+                // display.getInfoFrame().pack();
+                // display.getGameFrame().setVisible(false);
+                // JOptionPane.showMessageDialog(null, "Continue", "Pause", JOptionPane.PLAIN_MESSAGE);
+                thread.suspend();
+                // display.getInfoFrame().setVisible(false);
+                // display.getGameFrame().setVisible(true);
+                display.getGameFrame().remove(pane);
+                display.getGameFrame().add(display.getCanvas());
+                display.getGameFrame().pack();
+
 
             }
             else{
@@ -224,6 +231,7 @@ public class Gui implements Runnable, KeyListener {
         final int LEFT = 37;
         final int UP = 38;
         final int DOWN = 40;
+        final int ENTER = 10;
         final int shift = (int) ((1 / (double) map_size) * this.width) - 5;
 
         switch (e.getKeyCode()) {
@@ -254,6 +262,8 @@ public class Gui implements Runnable, KeyListener {
                 }
                 y += 1;
                 break;
+            case ENTER:
+                thread.resume();
         }
         System.out.println(x);
         System.out.println(y);
