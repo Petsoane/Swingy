@@ -61,4 +61,8 @@ public class HeroFactory {
         System.out.println("Hit points: " + h.getHitPoints());
     }
 
+    public List<HeroClass> getHeroTypes(){
+        return this.heroTypes;
+    }
+
 }

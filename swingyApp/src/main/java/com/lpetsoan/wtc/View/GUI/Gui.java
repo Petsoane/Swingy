@@ -3,11 +3,14 @@ package com.lpetsoan.wtc.View.GUI;
 import com.lpetsoan.wtc.Controllers.Controller;
 import com.lpetsoan.wtc.View.View;
 import com.lpetsoan.wtc.View.GUI.Panes.GamePane;
+import com.lpetsoan.wtc.models.Hero;
 import com.lpetsoan.wtc.models.Factories.HeroFactory;
+import com.lpetsoan.wtc.models.HeroClass.HeroClass;
 
 import javax.swing.*;
 import javax.swing.text.DefaultStyledDocument.ElementSpec;
 import javax.swing.text.Highlighter.Highlight;
+import java.util.List;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -27,7 +30,7 @@ public class Gui implements Runnable, KeyListener {
     public int width, height;
     private int x, y;
     public String title;
-    private JTextArea area = new JTextArea(width,height);
+    private JTextArea area = new JTextArea();
 
     private int map_size;
 
@@ -38,10 +41,47 @@ public class Gui implements Runnable, KeyListener {
         this.controller = new Controller();
         area.setSize(new Dimension(width, height));
     }
+    private void initPlayer(){
+        String name = null;
+
+        // get The name of the hero
+        while (true){
+            name = JOptionPane.showInputDialog(null, "Enter the hero name");
+            if (name == null){
+                JOptionPane.showMessageDialog(null, "Invalid input for the name", "Name Err", JOptionPane.ERROR_MESSAGE);
+            }
+            else{
+                break;
+            }
+        }
+
+        // get the hero class
+        List<HeroClass> heroTypes =  HeroFactory.getFactory().getHeroTypes();
+        HeroClass chosenClass = heroTypes.get(0);
+
+        for (HeroClass h :heroTypes){
+            int choose = JOptionPane.showConfirmDialog(null, h.type, "Choose This type", JOptionPane.YES_NO_OPTION);
+            
+            if (choose == JOptionPane.YES_OPTION){
+                chosenClass = h;
+                break;
+            }
+        }
+
+        controller.initPlayer(new Hero(name, chosenClass));
+    }
 
     private void init() {
         // prep the user...
-        this.controller.initPlayer(this.controller.loadHero());
+        int load = JOptionPane.showConfirmDialog(null, "Load the previouse character", "Load", JOptionPane.YES_NO_OPTION);
+
+        if (load == JOptionPane.YES_OPTION){
+            this.controller.initPlayer(this.controller.loadHero());
+        }
+        else{
+            System.out.println("Creating a new Player");
+            initPlayer();
+        }
 
         x = controller.getPlayerX();
         y = controller.getPlayerY();
@@ -49,8 +89,12 @@ public class Gui implements Runnable, KeyListener {
         // prep the display
         display = new Display(title, width, height);
         display.getCanvas().addKeyListener(this);
-
-        // init info frame 
+        
+        display.getGameFrame().addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent e){
+                controller.saveHero();
+            }
+        });
         
     }
 
@@ -115,9 +159,10 @@ public class Gui implements Runnable, KeyListener {
                 
                 dumpFight();
                 JScrollPane pane = new JScrollPane(area);
-                pane.setSize(new Dimension(width, height));
+                // pane.setSize(new Dimension(100, 100));
                 display.getGameFrame().add(pane);
                 area.setVisible(true);
+                // display.getGameFrame().repaint();
                 display.getGameFrame().pack();
                 // display.getInfoFrame().setVisible(true);
                 // display.getInfoFrame().pack();

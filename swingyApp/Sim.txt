@@ -1,50 +1,355 @@
-lebo vs Vl
-lebo attacks Vl
+Jonase vs Vl
+Jonase attacks Vl
 Taking damage
 98 Left of my life
-Vl attacks lebo
+Vl attacks Jonase
 Taking damage
-82 Left of my life
-lebo vs Vl
-lebo attacks Vl
+99 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
 Taking damage
 96 Left of my life
-Vl attacks lebo
+Vl attacks Jonase
 Taking damage
-64 Left of my life
-lebo vs Vl
-lebo attacks Vl
+98 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
 Taking damage
 94 Left of my life
-Vl attacks lebo
+Vl attacks Jonase
 Taking damage
-46 Left of my life
-lebo vs Vl
-lebo attacks Vl
+97 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
 Taking damage
 92 Left of my life
-Vl attacks lebo
+Vl attacks Jonase
 Taking damage
-28 Left of my life
-lebo vs Vl
-lebo attacks Vl
+96 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
 Taking damage
 90 Left of my life
-Vl attacks lebo
+Vl attacks Jonase
 Taking damage
-10 Left of my life
-lebo vs Vl
-lebo attacks Vl
+95 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
 Taking damage
 88 Left of my life
-Vl attacks lebo
+Vl attacks Jonase
 Taking damage
--8 Left of my life
-Name: lebo
+94 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+86 Left of my life
+Vl attacks Jonase
+Taking damage
+93 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+84 Left of my life
+Vl attacks Jonase
+Taking damage
+92 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+82 Left of my life
+Vl attacks Jonase
+Taking damage
+91 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+80 Left of my life
+Vl attacks Jonase
+Taking damage
+90 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+78 Left of my life
+Vl attacks Jonase
+Taking damage
+89 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+76 Left of my life
+Vl attacks Jonase
+Taking damage
+88 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+74 Left of my life
+Vl attacks Jonase
+Taking damage
+87 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+72 Left of my life
+Vl attacks Jonase
+Taking damage
+86 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+70 Left of my life
+Vl attacks Jonase
+Taking damage
+85 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+68 Left of my life
+Vl attacks Jonase
+Taking damage
+84 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+66 Left of my life
+Vl attacks Jonase
+Taking damage
+83 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+64 Left of my life
+Vl attacks Jonase
+Taking damage
+82 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+62 Left of my life
+Vl attacks Jonase
+Taking damage
+81 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+60 Left of my life
+Vl attacks Jonase
+Taking damage
+80 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+58 Left of my life
+Vl attacks Jonase
+Taking damage
+79 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+56 Left of my life
+Vl attacks Jonase
+Taking damage
+78 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+54 Left of my life
+Vl attacks Jonase
+Taking damage
+77 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+52 Left of my life
+Vl attacks Jonase
+Taking damage
+76 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+50 Left of my life
+Vl attacks Jonase
+Taking damage
+75 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+48 Left of my life
+Vl attacks Jonase
+Taking damage
+74 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+46 Left of my life
+Vl attacks Jonase
+Taking damage
+73 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+44 Left of my life
+Vl attacks Jonase
+Taking damage
+72 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+42 Left of my life
+Vl attacks Jonase
+Taking damage
+71 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+40 Left of my life
+Vl attacks Jonase
+Taking damage
+70 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+38 Left of my life
+Vl attacks Jonase
+Taking damage
+69 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+36 Left of my life
+Vl attacks Jonase
+Taking damage
+68 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+34 Left of my life
+Vl attacks Jonase
+Taking damage
+67 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+32 Left of my life
+Vl attacks Jonase
+Taking damage
+66 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+30 Left of my life
+Vl attacks Jonase
+Taking damage
+65 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+28 Left of my life
+Vl attacks Jonase
+Taking damage
+64 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+26 Left of my life
+Vl attacks Jonase
+Taking damage
+63 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+24 Left of my life
+Vl attacks Jonase
+Taking damage
+62 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+22 Left of my life
+Vl attacks Jonase
+Taking damage
+61 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+20 Left of my life
+Vl attacks Jonase
+Taking damage
+60 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+18 Left of my life
+Vl attacks Jonase
+Taking damage
+59 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+16 Left of my life
+Vl attacks Jonase
+Taking damage
+58 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+14 Left of my life
+Vl attacks Jonase
+Taking damage
+57 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+12 Left of my life
+Vl attacks Jonase
+Taking damage
+56 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+10 Left of my life
+Vl attacks Jonase
+Taking damage
+55 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+8 Left of my life
+Vl attacks Jonase
+Taking damage
+54 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+6 Left of my life
+Vl attacks Jonase
+Taking damage
+53 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+4 Left of my life
+Vl attacks Jonase
+Taking damage
+52 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+2 Left of my life
+Vl attacks Jonase
+Taking damage
+51 Left of my life
+Jonase vs Vl
+Jonase attacks Vl
+Taking damage
+0 Left of my life
+Name: Jonase
 Attack: 1
 Defense: 1
 Hit points: 1
-Health: -8
+Health: 126
 Class: class com.lpetsoan.wtc.models.Hero
 Level: 1
-Experience: 1200
+Experience: 1000
