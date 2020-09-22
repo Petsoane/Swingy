@@ -11,16 +11,24 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+
+import javax.validation.*;
+import javax.validation.ValidatorFactory;
+// import javax.xml.validation.Validator;
 
 // import com.lpetsoan.wtc.Utils.Input;
 // import com.lpetsoan.wtc.Utils.Position;
 import com.lpetsoan.wtc.models.Hero;
 import com.lpetsoan.wtc.models.Villian;
 import com.lpetsoan.wtc.models.Artifacts.Artifact;
+import com.lpetsoan.wtc.validators.interfaces.ControllerValidator;
 
 public class Controller {
     private Hero player;
-    private int map;
+
+    @ControllerValidator
+    private Integer map;
 
     private List<Villian> villians;
     private Villian opponent;
@@ -36,7 +44,7 @@ public class Controller {
         this.player = player;
         int level = player.getLevel();
 
-        this.map = (level - 1) * 5 + 10 - (level % 2);
+        // this.map = (level - 1) * 5 + 10 - (level % 2);
         this.player.setX(this.map / 2);
         this.player.setY(this.map / 2);
         initVillians();
@@ -55,6 +63,18 @@ public class Controller {
         int count = 10;
         // System.out.println("What is happening" + count);
 
+         // validate the controller
+         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+         Validator validator = factory.getValidator();
+         Set<ConstraintViolation<Controller>> vr = validator.validate(this);
+ 
+         if (vr.size() > 0){
+             for (ConstraintViolation<Controller> c : vr) {
+                 System.out.println(c.getMessage());
+             }
+             System.exit(1);
+         }
+         
         for (int i = 0; i < count; i++) {
             villians.add(new Villian("Vl", r.nextInt(10), r.nextInt(10), r.nextInt(10), r.nextInt(this.map),
                     r.nextInt(this.map)));

@@ -2,15 +2,18 @@ package com.lpetsoan.wtc.View.Terminal;
 
 import com.lpetsoan.wtc.models.Hero;
 import com.lpetsoan.wtc.models.Factories.HeroFactory;
+import com.lpetsoan.wtc.validators.interfaces.SizeValidator;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.ResourceBundle.Control;
+
+import javax.validation.*;
 
 import java.io.File;
-import java.io.InputStream;
 import java.lang.System;
 
-import javax.net.ssl.ExtendedSSLSession;
 
 import com.lpetsoan.wtc.Controllers.Controller;
 import com.lpetsoan.wtc.Utils.Input;
@@ -20,15 +23,16 @@ public class TermView implements View{
     private int map;
     private Controller controller;
 
-
     public TermView(){
         this.controller = new Controller();
     }
 
     private void initPlayer(){
+        @SizeValidator
         int answer = -1;
+        
         Hero h = null;
-
+        // Set<ConstraintViolation<Integer>> vr = validator.validate(answer);
         try{
 
             int tmp;
@@ -37,10 +41,12 @@ public class TermView implements View{
                     
                     tmp = Integer.parseInt(Input.getInput("1:Create hero\n2:Load hero \n"));
                     answer = tmp;
+
                 }
                 catch(NumberFormatException e){
                     System.out.println("Please enter a 1 or 2");
                 }
+                
             }
 
             if (answer == 1){
@@ -164,6 +170,18 @@ public class TermView implements View{
         // Input.clear();
         System.out.println("Starting the game");
         initPlayer();
+        // validate the controller
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<Controller>> vr = validator.validate(controller);
+
+        if (vr.size() > 0){
+            for (ConstraintViolation<Controller> c : vr) {
+                System.out.println(c.getMessage());
+            }
+            System.exit(1);
+        }
+
         gameLoop();
     }
 
